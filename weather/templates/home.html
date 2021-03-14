@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        #main {
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 100px;
+        }
+        input[type='text']{
+            width: 30%;
+            padding: 10px;
+            border: 2px solid black;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+       
+        }
+        input[type='submit']{
+            width: 30%;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        form{
+            margin-bottom: 10px;
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>
+            Find the Weather
+        </h1>
+        <form method="GET">
+            <input type="text" name="city" value="{{ request.GET.city }}" placeholder="Enter City Name"><br>
+            <input type="submit" value="Find">
+        </form>
+        {% if weather %}
+            <h3>{{ weather.region }}</h3>
+            <h3>{{ weather.daytime }}</h3>
+            <h3>{{ weather.status }}</h3>
+            <h3>{{ weather.temp }} °C</h3>
+        {% endif %}
+    </div>
+
+</body>
+</html>
